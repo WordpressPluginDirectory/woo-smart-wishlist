@@ -473,8 +473,16 @@
   $(document).
       on('click touch', '#woosw_copy_url, #woosw_copy_btn', function(e) {
         e.preventDefault();
+        let $link = $('#woosw_copy_url');
+        let link = $link.val();
 
-        woosw_copy_to_clipboard('#woosw_copy_url');
+        navigator.clipboard.writeText(link).then(function() {
+          alert(woosw_vars.copied_text + ' ' + link);
+        }, function() {
+          alert('Failure to copy!');
+        });
+
+        $link.select();
       });
 
   // add note
@@ -637,51 +645,6 @@
       jQuery('#woosw_wishlist .woosw-popup-content-mid').
           perfectScrollbar({theme: 'wpc'});
     }
-  }
-
-  function woosw_copy_url() {
-    var wooswURL = document.getElementById('woosw_copy_url');
-    wooswURL.select();
-    document.execCommand('copy');
-    alert(woosw_vars.copied_text + ' ' + wooswURL.value);
-  }
-
-  function woosw_copy_to_clipboard(el) {
-    // resolve the element
-    el = (typeof el === 'string') ? document.querySelector(el) : el;
-
-    // handle iOS as a special case
-    if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
-      // save current contentEditable/readOnly status
-      var editable = el.contentEditable;
-      var readOnly = el.readOnly;
-
-      // convert to editable with readonly to stop iOS keyboard opening
-      el.contentEditable = true;
-      el.readOnly = true;
-
-      // create a selectable range
-      var range = document.createRange();
-      range.selectNodeContents(el);
-
-      // select the range
-      var selection = window.getSelection();
-      selection.removeAllRanges();
-      selection.addRange(range);
-      el.setSelectionRange(0, 999999);
-
-      // restore contentEditable/readOnly to original state
-      el.contentEditable = editable;
-      el.readOnly = readOnly;
-    } else {
-      el.select();
-    }
-
-    // execute copy command
-    document.execCommand('copy');
-
-    // alert
-    alert(woosw_vars.copied_text + ' ' + el.value);
   }
 
   function woosw_html_entities(str) {

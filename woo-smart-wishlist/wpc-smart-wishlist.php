@@ -3,7 +3,7 @@
 Plugin Name: WPC Smart Wishlist for WooCommerce
 Plugin URI: https://wpclever.net/
 Description: WPC Smart Wishlist is a simple but powerful tool that can help your customer save products for buy later.
-Version: 4.7.9
+Version: 4.8.0
 Author: WPClever
 Author URI: https://wpclever.net
 Text Domain: woo-smart-wishlist
@@ -11,14 +11,14 @@ Domain Path: /languages/
 Requires at least: 4.0
 Tested up to: 6.4
 WC requires at least: 3.0
-WC tested up to: 8.3
+WC tested up to: 8.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.7.9' );
+! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.8.0' );
 ! defined( 'WOOSW_LITE' ) && define( 'WOOSW_LITE', __FILE__ );
 ! defined( 'WOOSW_FILE' ) && define( 'WOOSW_FILE', __FILE__ );
 ! defined( 'WOOSW_URI' ) && define( 'WOOSW_URI', plugin_dir_url( __FILE__ ) );
@@ -923,7 +923,7 @@ if ( ! function_exists( 'woosw_init' ) ) {
                                             </th>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><?php esc_html_e( 'Disable the wishlist for unauthenticated users', 'woo-smart-wishlist' ); ?></th>
+                                            <th scope="row"><?php esc_html_e( 'Disable for unauthenticated users', 'woo-smart-wishlist' ); ?></th>
                                             <td>
                                                 <select name="woosw_settings[disable_unauthenticated]">
                                                     <option value="yes" <?php selected( $disable_unauthenticated, 'yes' ); ?>><?php esc_html_e( 'Yes', 'woo-smart-wishlist' ); ?></option>
@@ -1814,10 +1814,10 @@ if ( ! function_exists( 'woosw_init' ) ) {
 							}
 
 							if ( is_array( $product_data ) && isset( $product_data['time'] ) ) {
-								$product_time = date_i18n( get_option( 'date_format' ), $product_data['time'] );
+								$product_time = wp_date( get_option( 'date_format' ), $product_data['time'] );
 							} else {
 								// for old version
-								$product_time = date_i18n( get_option( 'date_format' ), $product_data );
+								$product_time = wp_date( get_option( 'date_format' ), $product_data );
 							}
 
 							if ( is_array( $product_data ) && ! empty( $product_data['note'] ) ) {
@@ -2438,7 +2438,7 @@ if ( ! function_exists( 'woosw_init' ) ) {
 									echo '<div class="woosw-quickview-item-image">' . $_product->get_image() . '</div>';
 									echo '<div class="woosw-quickview-item-info">';
 									echo '<div class="woosw-quickview-item-title"><a href="' . get_edit_post_link( $pid ) . '" target="_blank">' . $_product->get_name() . '</a></div>';
-									echo '<div class="woosw-quickview-item-data">' . date_i18n( get_option( 'date_format' ), $data['time'] ) . ' <span class="woosw-quickview-item-links">| ' . sprintf( esc_html__( 'Product ID: %s', 'woo-smart-wishlist' ), $pid ) . ' | <a href="#" class="woosw_action" data-pid="' . esc_attr( $pid ) . '">' . esc_html__( 'See in wishlist', 'woo-smart-wishlist' ) . '</a></span></div>';
+									echo '<div class="woosw-quickview-item-data">' . wp_date( get_option( 'date_format' ), $data['time'] ) . ' <span class="woosw-quickview-item-links">| ' . sprintf( esc_html__( 'Product ID: %s', 'woo-smart-wishlist' ), $pid ) . ' | <a href="#" class="woosw_action" data-pid="' . esc_attr( $pid ) . '">' . esc_html__( 'See in wishlist', 'woo-smart-wishlist' ) . '</a></span></div>';
 									echo '</div><!-- /woosw-quickview-item-info -->';
 									echo '</div><!-- /woosw-quickview-item -->';
 								} else {
