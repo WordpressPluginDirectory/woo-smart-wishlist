@@ -536,17 +536,18 @@
 
   // menu item
   $(document).
-      on('click touch', '.woosw-menu-item a, .woosw-menu a', function(e) {
-        if (woosw_vars.menu_action === 'open_popup') {
-          e.preventDefault();
+      on('click touch', '.woosw-menu-item a, .woosw-menu a,.woosw-link a',
+          function(e) {
+            if (woosw_vars.menu_action === 'open_popup') {
+              e.preventDefault();
 
-          if ($('#woosw_wishlist').hasClass('woosw-loaded')) {
-            woosw_wishlist_show();
-          } else {
-            woosw_wishlist_load();
-          }
-        }
-      });
+              if ($('#woosw_wishlist').hasClass('woosw-loaded')) {
+                woosw_wishlist_show();
+              } else {
+                woosw_wishlist_load();
+              }
+            }
+          });
 
   // copy link
   $(document).
@@ -686,6 +687,7 @@
 
   function woosw_change_count(count) {
     $('#woosw_wishlist .woosw-count').html(count);
+    $('.woosw-link .woosw-link-inner').attr('data-count', count);
 
     if (parseInt(count) > 0) {
       $('.woosw-empty').show();

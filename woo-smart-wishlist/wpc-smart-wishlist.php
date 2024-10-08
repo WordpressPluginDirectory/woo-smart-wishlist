@@ -3,7 +3,7 @@
 Plugin Name: WPC Smart Wishlist for WooCommerce
 Plugin URI: https://wpclever.net/
 Description: WPC Smart Wishlist is a simple but powerful tool that can help your customer save products for buy later.
-Version: 4.9.1
+Version: 4.9.2
 Author: WPClever
 Author URI: https://wpclever.net
 Text Domain: woo-smart-wishlist
@@ -17,7 +17,7 @@ WC tested up to: 9.3
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.9.1' );
+! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.9.2' );
 ! defined( 'WOOSW_LITE' ) && define( 'WOOSW_LITE', __FILE__ );
 ! defined( 'WOOSW_FILE' ) && define( 'WOOSW_FILE', __FILE__ );
 ! defined( 'WOOSW_URI' ) && define( 'WOOSW_URI', plugin_dir_url( __FILE__ ) );
@@ -185,6 +185,7 @@ if ( ! function_exists( 'woosw_init' ) ) {
 					// shortcode
 					add_shortcode( 'woosw', [ $this, 'shortcode_btn' ] );
 					add_shortcode( 'woosw_btn', [ $this, 'shortcode_btn' ] );
+					add_shortcode( 'woosw_link', [ $this, 'shortcode_link' ] );
 					add_shortcode( 'woosw_list', [ $this, 'shortcode_list' ] );
 
 					// add button for archive
@@ -783,6 +784,12 @@ if ( ! function_exists( 'woosw_init' ) ) {
 					return wp_kses_post( apply_filters( 'woosw_button_html', $output, $attrs['id'], $attrs ) );
 				}
 
+				function shortcode_link() {
+					$output = '<span class="woosw-link"><a href="' . esc_url( self::get_url() ) . '"><span class="woosw-link-inner" data-count="' . esc_attr( self::get_count() ) . '">' . esc_html( self::localization( 'link_label', esc_html__( 'Wishlist', 'woo-smart-wishlist' ) ) ) . '</span></a></span>';
+
+					return apply_filters( 'woosw_link_html', $output );
+				}
+
 				function shortcode_list( $attrs ) {
 					$attrs = shortcode_atts( [
 						'key' => null
@@ -874,7 +881,7 @@ if ( ! function_exists( 'woosw_init' ) ) {
 					$return_html .= '</div><!-- /woosw-actions -->';
 					$return_html .= '</div><!-- /woosw-list -->';
 
-					return $return_html;
+					return apply_filters( 'woosw_list_html', $return_html, $attrs );
 				}
 
 				function register_settings() {
