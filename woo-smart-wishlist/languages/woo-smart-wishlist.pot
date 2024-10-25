@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the WPC Smart Wishlist for WooCommerce plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPC Smart Wishlist for WooCommerce 4.9.2\n"
+"Project-Id-Version: WPC Smart Wishlist for WooCommerce 4.9.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woo-smart-wishlist\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-10-07T23:43:46+00:00\n"
+"POT-Creation-Date: 2024-10-25T03:36:25+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: woo-smart-wishlist\n"
@@ -37,7 +37,7 @@ msgstr ""
 #: wpc-smart-wishlist.php:331
 #: wpc-smart-wishlist.php:393
 #: wpc-smart-wishlist.php:442
-#: wpc-smart-wishlist.php:1731
+#: wpc-smart-wishlist.php:1741
 msgid "Please log in to use the Wishlist!"
 msgstr ""
 
@@ -45,39 +45,39 @@ msgstr ""
 #: wpc-smart-wishlist.php:411
 #: wpc-smart-wishlist.php:456
 #: wpc-smart-wishlist.php:481
-#: wpc-smart-wishlist.php:1707
-#: wpc-smart-wishlist.php:2112
+#: wpc-smart-wishlist.php:1717
+#: wpc-smart-wishlist.php:2123
 msgid "There are no products on the Wishlist!"
 msgstr ""
 
 #: wpc-smart-wishlist.php:349
-#: wpc-smart-wishlist.php:1667
+#: wpc-smart-wishlist.php:1677
 msgid "{name} has been added to Wishlist."
 msgstr ""
 
 #: wpc-smart-wishlist.php:351
-#: wpc-smart-wishlist.php:1675
+#: wpc-smart-wishlist.php:1685
 msgid "{name} is already in the Wishlist."
 msgstr ""
 
 #: wpc-smart-wishlist.php:369
 #: wpc-smart-wishlist.php:419
-#: wpc-smart-wishlist.php:1747
+#: wpc-smart-wishlist.php:1757
 msgid "Have an error, please try again!"
 msgstr ""
 
 #: wpc-smart-wishlist.php:403
-#: wpc-smart-wishlist.php:1683
+#: wpc-smart-wishlist.php:1693
 msgid "Product has been removed from the Wishlist."
 msgstr ""
 
 #: wpc-smart-wishlist.php:414
-#: wpc-smart-wishlist.php:1723
+#: wpc-smart-wishlist.php:1733
 msgid "The product does not exist on the Wishlist!"
 msgstr ""
 
 #: wpc-smart-wishlist.php:455
-#: wpc-smart-wishlist.php:1699
+#: wpc-smart-wishlist.php:1709
 msgid "All products have been removed from the Wishlist!"
 msgstr ""
 
@@ -87,871 +87,882 @@ msgid "Please log in to use Wishlist!"
 msgstr ""
 
 #: wpc-smart-wishlist.php:554
-#: wpc-smart-wishlist.php:1536
-#: wpc-smart-wishlist.php:1539
+#: wpc-smart-wishlist.php:1546
+#: wpc-smart-wishlist.php:1549
 msgid "Add note"
 msgstr ""
 
 #: wpc-smart-wishlist.php:748
-#: wpc-smart-wishlist.php:1515
-#: wpc-smart-wishlist.php:1859
+#: wpc-smart-wishlist.php:1525
+#: wpc-smart-wishlist.php:1870
 msgid "Browse wishlist"
 msgstr ""
 
 #: wpc-smart-wishlist.php:751
-#: wpc-smart-wishlist.php:1507
-#: wpc-smart-wishlist.php:1858
+#: wpc-smart-wishlist.php:1517
+#: wpc-smart-wishlist.php:1869
 msgid "Add to wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:788
-#: wpc-smart-wishlist.php:828
-#: wpc-smart-wishlist.php:1523
-#: wpc-smart-wishlist.php:1595
-#: wpc-smart-wishlist.php:1607
-#: wpc-smart-wishlist.php:1801
-#: wpc-smart-wishlist.php:1857
-#: wpc-smart-wishlist.php:2240
-#: wpc-smart-wishlist.php:2258
-#: wpc-smart-wishlist.php:2327
-#: wpc-smart-wishlist.php:2535
-#: wpc-smart-wishlist.php:2785
-#: wpc-smart-wishlist.php:2792
-#: wpc-smart-wishlist.php:2883
+#: wpc-smart-wishlist.php:790
+#: wpc-smart-wishlist.php:833
+#: wpc-smart-wishlist.php:1533
+#: wpc-smart-wishlist.php:1605
+#: wpc-smart-wishlist.php:1617
+#: wpc-smart-wishlist.php:1811
+#: wpc-smart-wishlist.php:1868
+#: wpc-smart-wishlist.php:2251
+#: wpc-smart-wishlist.php:2269
+#: wpc-smart-wishlist.php:2338
+#: wpc-smart-wishlist.php:2546
+#: wpc-smart-wishlist.php:2796
+#: wpc-smart-wishlist.php:2803
+#: wpc-smart-wishlist.php:2894
 msgid "Wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:844
-#: wpc-smart-wishlist.php:1417
+#: wpc-smart-wishlist.php:850
+#: wpc-smart-wishlist.php:1426
 msgid "Facebook"
 msgstr ""
 
-#: wpc-smart-wishlist.php:845
-#: wpc-smart-wishlist.php:1418
+#: wpc-smart-wishlist.php:851
+#: wpc-smart-wishlist.php:1427
 msgid "Twitter"
 msgstr ""
 
-#: wpc-smart-wishlist.php:846
-#: wpc-smart-wishlist.php:1419
+#: wpc-smart-wishlist.php:852
+#: wpc-smart-wishlist.php:1428
 msgid "Pinterest"
 msgstr ""
 
-#: wpc-smart-wishlist.php:847
-#: wpc-smart-wishlist.php:1420
+#: wpc-smart-wishlist.php:853
+#: wpc-smart-wishlist.php:1429
 msgid "Mail"
 msgstr ""
 
-#: wpc-smart-wishlist.php:860
+#: wpc-smart-wishlist.php:866
 msgid "Share on:"
 msgstr ""
 
-#: wpc-smart-wishlist.php:873
+#: wpc-smart-wishlist.php:879
 msgid "Wishlist link:"
 msgstr ""
 
-#: wpc-smart-wishlist.php:875
+#: wpc-smart-wishlist.php:881
 msgid "Copy"
 msgstr ""
 
-#: wpc-smart-wishlist.php:906
+#: wpc-smart-wishlist.php:914
 msgid "WPC Smart Wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:906
+#: wpc-smart-wishlist.php:914
 msgid "Premium"
 msgstr ""
 
 #. translators: stars
-#: wpc-smart-wishlist.php:909
+#: wpc-smart-wishlist.php:917
 msgid "Thank you for using our plugin! If you are satisfied, please reward it a full five-star %s rating."
 msgstr ""
 
-#: wpc-smart-wishlist.php:911
+#: wpc-smart-wishlist.php:919
 msgid "Reviews"
 msgstr ""
 
-#: wpc-smart-wishlist.php:912
+#: wpc-smart-wishlist.php:920
 msgid "Changelog"
 msgstr ""
 
-#: wpc-smart-wishlist.php:913
+#: wpc-smart-wishlist.php:921
 msgid "Discussion"
 msgstr ""
 
-#: wpc-smart-wishlist.php:918
+#: wpc-smart-wishlist.php:926
 msgid "Settings updated."
 msgstr ""
 
-#: wpc-smart-wishlist.php:924
-#: wpc-smart-wishlist.php:1898
+#: wpc-smart-wishlist.php:932
+#: wpc-smart-wishlist.php:1909
 msgid "Settings"
 msgstr ""
 
-#: wpc-smart-wishlist.php:927
-#: wpc-smart-wishlist.php:1498
+#: wpc-smart-wishlist.php:935
+#: wpc-smart-wishlist.php:1508
 msgid "Localization"
 msgstr ""
 
-#: wpc-smart-wishlist.php:930
-#: wpc-smart-wishlist.php:1899
+#: wpc-smart-wishlist.php:938
+#: wpc-smart-wishlist.php:1910
 msgid "Premium Version"
 msgstr ""
 
-#: wpc-smart-wishlist.php:933
+#: wpc-smart-wishlist.php:941
 msgid "Essential Kit"
 msgstr ""
 
-#: wpc-smart-wishlist.php:974
+#: wpc-smart-wishlist.php:982
 msgid "General"
 msgstr ""
 
-#: wpc-smart-wishlist.php:978
+#: wpc-smart-wishlist.php:986
 msgid "Disable for unauthenticated users"
 msgstr ""
 
-#: wpc-smart-wishlist.php:981
-#: wpc-smart-wishlist.php:990
-#: wpc-smart-wishlist.php:1000
-#: wpc-smart-wishlist.php:1018
-#: wpc-smart-wishlist.php:1252
-#: wpc-smart-wishlist.php:1298
-#: wpc-smart-wishlist.php:1312
-#: wpc-smart-wishlist.php:1322
-#: wpc-smart-wishlist.php:1391
-#: wpc-smart-wishlist.php:1401
-#: wpc-smart-wishlist.php:1428
-#: wpc-smart-wishlist.php:1438
+#: wpc-smart-wishlist.php:989
+#: wpc-smart-wishlist.php:998
+#: wpc-smart-wishlist.php:1008
+#: wpc-smart-wishlist.php:1026
+#: wpc-smart-wishlist.php:1261
+#: wpc-smart-wishlist.php:1307
+#: wpc-smart-wishlist.php:1321
+#: wpc-smart-wishlist.php:1331
+#: wpc-smart-wishlist.php:1400
+#: wpc-smart-wishlist.php:1410
+#: wpc-smart-wishlist.php:1437
 msgid "Yes"
 msgstr ""
 
-#: wpc-smart-wishlist.php:982
-#: wpc-smart-wishlist.php:991
-#: wpc-smart-wishlist.php:1001
-#: wpc-smart-wishlist.php:1019
-#: wpc-smart-wishlist.php:1057
-#: wpc-smart-wishlist.php:1253
-#: wpc-smart-wishlist.php:1275
-#: wpc-smart-wishlist.php:1286
-#: wpc-smart-wishlist.php:1299
-#: wpc-smart-wishlist.php:1313
-#: wpc-smart-wishlist.php:1323
-#: wpc-smart-wishlist.php:1392
-#: wpc-smart-wishlist.php:1402
-#: wpc-smart-wishlist.php:1429
-#: wpc-smart-wishlist.php:1439
+#: wpc-smart-wishlist.php:990
+#: wpc-smart-wishlist.php:999
+#: wpc-smart-wishlist.php:1009
+#: wpc-smart-wishlist.php:1027
+#: wpc-smart-wishlist.php:1065
+#: wpc-smart-wishlist.php:1262
+#: wpc-smart-wishlist.php:1284
+#: wpc-smart-wishlist.php:1295
+#: wpc-smart-wishlist.php:1308
+#: wpc-smart-wishlist.php:1322
+#: wpc-smart-wishlist.php:1332
+#: wpc-smart-wishlist.php:1401
+#: wpc-smart-wishlist.php:1411
+#: wpc-smart-wishlist.php:1438
+#: wpc-smart-wishlist.php:1449
 msgid "No"
 msgstr ""
 
-#: wpc-smart-wishlist.php:987
+#: wpc-smart-wishlist.php:995
 msgid "Auto remove"
 msgstr ""
 
-#: wpc-smart-wishlist.php:993
+#: wpc-smart-wishlist.php:1001
 msgid "Auto remove product from the wishlist after adding to the cart."
 msgstr ""
 
-#: wpc-smart-wishlist.php:997
+#: wpc-smart-wishlist.php:1005
 msgid "Reload the count"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1003
+#: wpc-smart-wishlist.php:1011
 msgid "Reload the count when opening the page?"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1008
-#: wpc-smart-wishlist.php:1600
+#: wpc-smart-wishlist.php:1016
+#: wpc-smart-wishlist.php:1610
 msgid "Multiple Wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1015
+#: wpc-smart-wishlist.php:1023
 msgid "Enable"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1021
+#: wpc-smart-wishlist.php:1029
 msgid "Enable/disable multiple wishlist."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1025
+#: wpc-smart-wishlist.php:1033
 msgid "Maximum wishlists per user"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1034
-#: wpc-smart-wishlist.php:1044
+#: wpc-smart-wishlist.php:1042
+#: wpc-smart-wishlist.php:1052
 msgid "Button"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1037
+#: wpc-smart-wishlist.php:1045
 msgid "Settings for \"Add to wishlist\" button."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1041
+#: wpc-smart-wishlist.php:1049
 msgid "Type"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1045
+#: wpc-smart-wishlist.php:1053
 msgid "Link"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1050
-#: wpc-smart-wishlist.php:1398
+#: wpc-smart-wishlist.php:1058
+#: wpc-smart-wishlist.php:1407
 msgid "Use icon"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1054
+#: wpc-smart-wishlist.php:1062
 msgid "Icon on the left"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1055
+#: wpc-smart-wishlist.php:1063
 msgid "Icon on the right"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1056
+#: wpc-smart-wishlist.php:1064
 msgid "Icon only"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1062
+#: wpc-smart-wishlist.php:1070
 msgid "Normal icon"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1073
+#: wpc-smart-wishlist.php:1081
 msgid "Added icon"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1084
+#: wpc-smart-wishlist.php:1092
 msgid "Loading icon"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1095
-#: wpc-smart-wishlist.php:1478
+#: wpc-smart-wishlist.php:1103
+#: wpc-smart-wishlist.php:1488
 msgid "Action"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1099
+#: wpc-smart-wishlist.php:1107
 msgid "Show message"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1100
-#: wpc-smart-wishlist.php:1123
-#: wpc-smart-wishlist.php:1482
+#: wpc-smart-wishlist.php:1108
+#: wpc-smart-wishlist.php:1131
+#: wpc-smart-wishlist.php:1492
 msgid "Open wishlist popup"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1101
+#: wpc-smart-wishlist.php:1109
 msgid "Add to wishlist solely"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1103
+#: wpc-smart-wishlist.php:1111
 msgid "Action triggered by clicking on the wishlist button."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1107
+#: wpc-smart-wishlist.php:1115
 msgid "Message position"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1110
+#: wpc-smart-wishlist.php:1118
 msgid "right-top"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1111
+#: wpc-smart-wishlist.php:1119
 msgid "right-bottom"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1112
+#: wpc-smart-wishlist.php:1120
 msgid "center-top"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1113
+#: wpc-smart-wishlist.php:1121
 msgid "center-bottom"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1114
+#: wpc-smart-wishlist.php:1122
 msgid "left-top"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1115
+#: wpc-smart-wishlist.php:1123
 msgid "left-bottom"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1120
+#: wpc-smart-wishlist.php:1128
 msgid "Action (added)"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1124
-#: wpc-smart-wishlist.php:1481
-#: wpc-smart-wishlist.php:1568
-#: wpc-smart-wishlist.php:1571
-#: wpc-smart-wishlist.php:2288
+#: wpc-smart-wishlist.php:1132
+#: wpc-smart-wishlist.php:1491
+#: wpc-smart-wishlist.php:1578
+#: wpc-smart-wishlist.php:1581
+#: wpc-smart-wishlist.php:2299
 msgid "Open wishlist page"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1126
-msgid "Action triggered by clicking on the wishlist button after adding an item to the wishlist."
-msgstr ""
-
-#: wpc-smart-wishlist.php:1130
-msgid "Extra class (optional)"
+#: wpc-smart-wishlist.php:1133
+msgid "Remove from wishlist"
 msgstr ""
 
 #: wpc-smart-wishlist.php:1135
-msgid "Add extra class for action button/link, split by one space."
+msgid "Action triggered by clicking on the wishlist button of a product that was added to wishlist."
 msgstr ""
 
 #: wpc-smart-wishlist.php:1139
-msgid "Position on archive page"
+msgid "Extra class (optional)"
 msgstr ""
 
 #: wpc-smart-wishlist.php:1144
-msgid "Above title"
-msgstr ""
-
-#: wpc-smart-wishlist.php:1145
-#: wpc-smart-wishlist.php:1173
-msgid "Under title"
-msgstr ""
-
-#: wpc-smart-wishlist.php:1146
-#: wpc-smart-wishlist.php:1174
-msgid "Under rating"
-msgstr ""
-
-#: wpc-smart-wishlist.php:1147
-msgid "Under price"
+msgid "Add extra class for action button/link, split by one space."
 msgstr ""
 
 #: wpc-smart-wishlist.php:1148
-#: wpc-smart-wishlist.php:1176
+msgid "Position on archive page"
+msgstr ""
+
+#: wpc-smart-wishlist.php:1153
+msgid "Above title"
+msgstr ""
+
+#: wpc-smart-wishlist.php:1154
+#: wpc-smart-wishlist.php:1182
+msgid "Under title"
+msgstr ""
+
+#: wpc-smart-wishlist.php:1155
+#: wpc-smart-wishlist.php:1183
+msgid "Under rating"
+msgstr ""
+
+#: wpc-smart-wishlist.php:1156
+msgid "Under price"
+msgstr ""
+
+#: wpc-smart-wishlist.php:1157
+#: wpc-smart-wishlist.php:1185
 msgid "Above add to cart button"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1149
-#: wpc-smart-wishlist.php:1177
+#: wpc-smart-wishlist.php:1158
+#: wpc-smart-wishlist.php:1186
 msgid "Under add to cart button"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1150
-#: wpc-smart-wishlist.php:1180
+#: wpc-smart-wishlist.php:1159
+#: wpc-smart-wishlist.php:1189
 msgid "None (hide it)"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1168
+#: wpc-smart-wishlist.php:1177
 msgid "Position on single page"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1175
+#: wpc-smart-wishlist.php:1184
 msgid "Under excerpt"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1178
+#: wpc-smart-wishlist.php:1187
 msgid "Under meta"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1179
+#: wpc-smart-wishlist.php:1188
 msgid "Under sharing"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1198
+#: wpc-smart-wishlist.php:1207
 msgid "Shortcode"
 msgstr ""
 
 #. translators: shortcode
-#: wpc-smart-wishlist.php:1201
+#: wpc-smart-wishlist.php:1210
 msgid "You can add a button manually by using the shortcode %1$s, e.g. %2$s for the product whose ID is 99."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1206
+#: wpc-smart-wishlist.php:1215
 msgid "Categories"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1222
+#: wpc-smart-wishlist.php:1231
 msgid "All categories"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1227
+#: wpc-smart-wishlist.php:1236
 msgid "Only show the wishlist button for products in selected categories."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1232
+#: wpc-smart-wishlist.php:1241
 msgid "Popup"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1235
+#: wpc-smart-wishlist.php:1244
 msgid "Settings for the wishlist popup."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1239
+#: wpc-smart-wishlist.php:1248
 msgid "Position"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1242
+#: wpc-smart-wishlist.php:1251
 msgid "Center"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1243
+#: wpc-smart-wishlist.php:1252
 msgid "Right"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1244
+#: wpc-smart-wishlist.php:1253
 msgid "Left"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1249
+#: wpc-smart-wishlist.php:1258
 msgid "Use perfect-scrollbar"
 msgstr ""
 
 #. translators: link
-#: wpc-smart-wishlist.php:1255
+#: wpc-smart-wishlist.php:1264
 msgid "Read more about %s"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1259
+#: wpc-smart-wishlist.php:1268
 msgid "Color"
 msgstr ""
 
 #. translators: color
-#: wpc-smart-wishlist.php:1265
+#: wpc-smart-wishlist.php:1274
 msgid "Choose the color, default %s"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1269
+#: wpc-smart-wishlist.php:1278
 msgid "Link to individual product"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1272
+#: wpc-smart-wishlist.php:1281
 msgid "Yes, open in the same tab"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1273
+#: wpc-smart-wishlist.php:1282
 msgid "Yes, open in the new tab"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1274
+#: wpc-smart-wishlist.php:1283
 msgid "Yes, open quick view popup"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1283
+#: wpc-smart-wishlist.php:1292
 msgid "Show price change"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1287
+#: wpc-smart-wishlist.php:1296
 msgid "Increase only"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1288
+#: wpc-smart-wishlist.php:1297
 msgid "Decrease only"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1289
+#: wpc-smart-wishlist.php:1298
 msgid "Both increase and decrease"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1291
+#: wpc-smart-wishlist.php:1300
 msgid "Show price change since a product was added."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1295
+#: wpc-smart-wishlist.php:1304
 msgid "Use notes"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1301
+#: wpc-smart-wishlist.php:1310
 msgid "Enable/disable the notes feature. Allow the wishlist owner to add notes for each product."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1309
+#: wpc-smart-wishlist.php:1318
 msgid "Show notes publicly"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1315
+#: wpc-smart-wishlist.php:1324
 msgid "Show notes on each product for all visitors. The wishlist owner always can view/add/edit their notes."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1319
-#: wpc-smart-wishlist.php:1528
+#: wpc-smart-wishlist.php:1328
+#: wpc-smart-wishlist.php:1538
 msgid "Empty wishlist button"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1325
+#: wpc-smart-wishlist.php:1334
 msgid "Show empty wishlist button on the popup?"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1329
+#: wpc-smart-wishlist.php:1338
 msgid "Continue shopping link"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1334
+#: wpc-smart-wishlist.php:1343
 msgid "By default, the wishlist popup will only be closed when customers click on the \"Continue Shopping\" button."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1338
+#: wpc-smart-wishlist.php:1347
 msgid "Suggested products"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1340
+#: wpc-smart-wishlist.php:1349
 msgid "Show suggested products below products list."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1340
+#: wpc-smart-wishlist.php:1349
 msgid "Limit"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1347
+#: wpc-smart-wishlist.php:1356
 msgid "Related products"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1350
+#: wpc-smart-wishlist.php:1359
 msgid "Upsells products"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1353
+#: wpc-smart-wishlist.php:1362
 msgid "Cross-sells products"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1356
+#: wpc-smart-wishlist.php:1365
 msgid "Compare"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1369
+#: wpc-smart-wishlist.php:1378
 msgid "Page"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1372
+#: wpc-smart-wishlist.php:1381
 msgid "Settings for wishlist page."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1376
+#: wpc-smart-wishlist.php:1385
 msgid "Wishlist page"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1381
+#: wpc-smart-wishlist.php:1390
 msgid "Choose a page"
 msgstr ""
 
 #. translators: shortcode
-#: wpc-smart-wishlist.php:1384
+#: wpc-smart-wishlist.php:1393
 msgid "Add shortcode %s to display the wishlist on a page."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1388
+#: wpc-smart-wishlist.php:1397
 msgid "Share buttons"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1394
+#: wpc-smart-wishlist.php:1403
 msgid "Enable share buttons on the wishlist page?"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1407
+#: wpc-smart-wishlist.php:1416
 msgid "Social links"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1425
+#: wpc-smart-wishlist.php:1434
 msgid "Copy link"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1431
+#: wpc-smart-wishlist.php:1440
 msgid "Enable copy wishlist link to share?"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1435
-msgid "Add Wishlist page to My Account"
+#: wpc-smart-wishlist.php:1444
+msgid "Add Wishlist link to My Account"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1445
-msgid "Menu"
+#: wpc-smart-wishlist.php:1447
+msgid "Yes, open wishlist page"
 msgstr ""
 
 #: wpc-smart-wishlist.php:1448
+msgid "Yes, open wishlist popup"
+msgstr ""
+
+#: wpc-smart-wishlist.php:1455
+msgid "Menu"
+msgstr ""
+
+#: wpc-smart-wishlist.php:1458
 msgid "Settings for the wishlist menu item."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1452
+#: wpc-smart-wishlist.php:1462
 msgid "Menu(s)"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1471
+#: wpc-smart-wishlist.php:1481
 msgid "Haven't any menu yet. Please go to Appearance > Menus to create one."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1474
+#: wpc-smart-wishlist.php:1484
 msgid "Choose the menu(s) you want to add the \"wishlist menu\" at the end."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1484
+#: wpc-smart-wishlist.php:1494
 msgid "Action when clicking on the \"wishlist menu\"."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1500
+#: wpc-smart-wishlist.php:1510
 msgid "Leave blank to use the default text and its equivalent translation in multiple languages."
 msgstr ""
 
-#: wpc-smart-wishlist.php:1504
+#: wpc-smart-wishlist.php:1514
 msgid "Button text"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1512
+#: wpc-smart-wishlist.php:1522
 msgid "Button text (added)"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1520
+#: wpc-smart-wishlist.php:1530
 msgid "Wishlist popup heading"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1531
-#: wpc-smart-wishlist.php:2271
+#: wpc-smart-wishlist.php:1541
+#: wpc-smart-wishlist.php:2282
 msgid "remove all"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1544
+#: wpc-smart-wishlist.php:1554
 msgid "Save note"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1547
+#: wpc-smart-wishlist.php:1557
 msgid "Save"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1552
+#: wpc-smart-wishlist.php:1562
 msgid "Price increase"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1555
-#: wpc-smart-wishlist.php:2025
+#: wpc-smart-wishlist.php:1565
+#: wpc-smart-wishlist.php:2036
 msgid "Increase {percentage} since added"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1560
+#: wpc-smart-wishlist.php:1570
 msgid "Price decrease"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1563
-#: wpc-smart-wishlist.php:2037
+#: wpc-smart-wishlist.php:1573
+#: wpc-smart-wishlist.php:2048
 msgid "Decrease {percentage} since added"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1576
-#: wpc-smart-wishlist.php:1579
-#: wpc-smart-wishlist.php:2291
+#: wpc-smart-wishlist.php:1586
+#: wpc-smart-wishlist.php:1589
+#: wpc-smart-wishlist.php:2302
 msgid "Continue shopping"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1584
+#: wpc-smart-wishlist.php:1594
 msgid "Suggested"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1587
-#: wpc-smart-wishlist.php:2125
+#: wpc-smart-wishlist.php:1597
+#: wpc-smart-wishlist.php:2136
 msgid "You may be interested in&hellip;"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1592
+#: wpc-smart-wishlist.php:1602
 msgid "Menu item label"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1604
+#: wpc-smart-wishlist.php:1614
 msgid "Primary wishlist name"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1612
-#: wpc-smart-wishlist.php:1615
-#: wpc-smart-wishlist.php:2307
+#: wpc-smart-wishlist.php:1622
+#: wpc-smart-wishlist.php:1625
+#: wpc-smart-wishlist.php:2318
 msgid "Manage wishlists"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1620
+#: wpc-smart-wishlist.php:1630
 msgid "Set default"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1623
-#: wpc-smart-wishlist.php:2341
+#: wpc-smart-wishlist.php:1633
+#: wpc-smart-wishlist.php:2352
 msgid "set default"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1628
+#: wpc-smart-wishlist.php:1638
 msgid "Default"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1631
-#: wpc-smart-wishlist.php:2339
+#: wpc-smart-wishlist.php:1641
+#: wpc-smart-wishlist.php:2350
 msgid "default"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1636
+#: wpc-smart-wishlist.php:1646
 msgid "Delete"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1639
-#: wpc-smart-wishlist.php:2347
+#: wpc-smart-wishlist.php:1649
+#: wpc-smart-wishlist.php:2358
 msgid "delete"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1644
+#: wpc-smart-wishlist.php:1654
 msgid "Wishlist name placeholder"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1647
-#: wpc-smart-wishlist.php:2357
+#: wpc-smart-wishlist.php:1657
+#: wpc-smart-wishlist.php:2368
 msgid "New Wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1652
+#: wpc-smart-wishlist.php:1662
 msgid "Add new wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1655
-#: wpc-smart-wishlist.php:2358
+#: wpc-smart-wishlist.php:1665
+#: wpc-smart-wishlist.php:2369
 msgid "Add New Wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1660
+#: wpc-smart-wishlist.php:1670
 msgid "Message"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1664
+#: wpc-smart-wishlist.php:1674
 msgid "Added to the wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1672
+#: wpc-smart-wishlist.php:1682
 msgid "Already in the wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1680
+#: wpc-smart-wishlist.php:1690
 msgid "Removed from wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1688
+#: wpc-smart-wishlist.php:1698
 msgid "Empty wishlist confirm"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1691
-#: wpc-smart-wishlist.php:1715
-#: wpc-smart-wishlist.php:1854
-#: wpc-smart-wishlist.php:1855
+#: wpc-smart-wishlist.php:1701
+#: wpc-smart-wishlist.php:1725
+#: wpc-smart-wishlist.php:1865
+#: wpc-smart-wishlist.php:1866
 msgid "This action cannot be undone. Are you sure?"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1696
+#: wpc-smart-wishlist.php:1706
 msgid "Empty wishlist notice"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1704
+#: wpc-smart-wishlist.php:1714
 msgid "Empty wishlist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1712
+#: wpc-smart-wishlist.php:1722
 msgid "Delete wishlist confirm"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1720
+#: wpc-smart-wishlist.php:1730
 msgid "Product does not exist"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1728
+#: wpc-smart-wishlist.php:1738
 msgid "Need to login"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1736
+#: wpc-smart-wishlist.php:1746
 msgid "Copied wishlist link"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1739
-#: wpc-smart-wishlist.php:1856
+#: wpc-smart-wishlist.php:1749
+#: wpc-smart-wishlist.php:1867
 msgid "Copied the wishlist link:"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1744
+#: wpc-smart-wishlist.php:1754
 msgid "Have an error"
 msgstr ""
 
-#: wpc-smart-wishlist.php:1915
+#: wpc-smart-wishlist.php:1926
 msgid "Community support"
 msgstr ""
 
 #. translators: count
-#: wpc-smart-wishlist.php:2576
-#: wpc-smart-wishlist.php:2579
-#: wpc-smart-wishlist.php:2670
-#: wpc-smart-wishlist.php:2673
-#: wpc-smart-wishlist.php:2703
+#: wpc-smart-wishlist.php:2587
+#: wpc-smart-wishlist.php:2590
+#: wpc-smart-wishlist.php:2681
+#: wpc-smart-wishlist.php:2684
+#: wpc-smart-wishlist.php:2714
 msgid "%s product"
 msgid_plural "%s products"
 msgstr[0] ""
 msgstr[1] ""
 
-#: wpc-smart-wishlist.php:2578
-#: wpc-smart-wishlist.php:2672
+#: wpc-smart-wishlist.php:2589
+#: wpc-smart-wishlist.php:2683
 msgid "Guest"
 msgstr ""
 
 #. translators: product id
-#: wpc-smart-wishlist.php:2591
-#: wpc-smart-wishlist.php:2598
-#: wpc-smart-wishlist.php:2628
-#: wpc-smart-wishlist.php:2632
+#: wpc-smart-wishlist.php:2602
+#: wpc-smart-wishlist.php:2609
+#: wpc-smart-wishlist.php:2639
+#: wpc-smart-wishlist.php:2643
 msgid "Product ID: %s"
 msgstr ""
 
 #. translators: product id
-#: wpc-smart-wishlist.php:2591
+#: wpc-smart-wishlist.php:2602
 msgid "See in wishlist"
 msgstr ""
 
 #. translators: product id
-#: wpc-smart-wishlist.php:2599
-#: wpc-smart-wishlist.php:2633
+#: wpc-smart-wishlist.php:2610
+#: wpc-smart-wishlist.php:2644
 msgid "This product is not available!"
 msgstr ""
 
 #. translators: wishlist key
-#: wpc-smart-wishlist.php:2608
+#: wpc-smart-wishlist.php:2619
 msgid "Wishlist #%s"
 msgstr ""
 
 #. translators: wishlist key
-#: wpc-smart-wishlist.php:2609
+#: wpc-smart-wishlist.php:2620
 msgid "This wishlist have no product!"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2824
+#: wpc-smart-wishlist.php:2835
 msgid "Before container"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2825
+#: wpc-smart-wishlist.php:2836
 msgid "After container"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2826
+#: wpc-smart-wishlist.php:2837
 msgid "Before product list"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2827
+#: wpc-smart-wishlist.php:2838
 msgid "After product list"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2828
+#: wpc-smart-wishlist.php:2839
 msgid "Before product"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2829
+#: wpc-smart-wishlist.php:2840
 msgid "After product"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2830
+#: wpc-smart-wishlist.php:2841
 msgid "Before product image"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2831
+#: wpc-smart-wishlist.php:2842
 msgid "After product image"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2832
+#: wpc-smart-wishlist.php:2843
 msgid "Before product info"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2833
+#: wpc-smart-wishlist.php:2844
 msgid "After product info"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2834
+#: wpc-smart-wishlist.php:2845
 msgid "Before product buttons"
 msgstr ""
 
-#: wpc-smart-wishlist.php:2835
+#: wpc-smart-wishlist.php:2846
 msgid "After product buttons"
 msgstr ""

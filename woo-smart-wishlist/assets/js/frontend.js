@@ -121,13 +121,59 @@
       id = product_id;
     }
 
-    // add product
-    var data = {
-      action: 'woosw_add', product_id: id, nonce: woosw_vars.nonce,
-    };
-
     if ($this.hasClass('woosw-added')) {
-      if (woosw_vars.button_action_added === 'page') {
+      if (woosw_vars.button_action_added === 'remove') {
+        // remove from  wishlist
+        var data = {
+          action: 'woosw_remove',
+          product_id: id,
+          key: key,
+          nonce: woosw_vars.nonce,
+        };
+
+        $this.addClass('woosw-adding').
+            find('.woosw-btn-icon').
+            removeClass(woosw_vars.button_normal_icon + ' ' +
+                woosw_vars.button_added_icon).
+            addClass(woosw_vars.button_loading_icon);
+
+        $.post(woosw_vars.wc_ajax_url.toString().
+            replace('%%endpoint%%', 'woosw_remove'), data, function(response) {
+          $this.removeClass('woosw-adding').
+              find('.woosw-btn-icon').
+              removeClass(woosw_vars.button_loading_icon);
+
+          if (response.content != null) {
+            $('#woosw_wishlist').
+                html(response.content).
+                addClass('woosw-loaded');
+          }
+
+          if (response.notice != null) {
+            woosw_notice(response.notice);
+          }
+
+          if (response.count != null) {
+            woosw_change_count(response.count);
+          }
+
+          if ($storage && response.data) {
+            sessionStorage.setItem('woosw_data_' + response.data.key,
+                JSON.stringify(response.data));
+          }
+
+          if (response.data.fragments) {
+            woosw_refresh_fragments(response.data.fragments);
+          }
+
+          if (response.data.ids) {
+            woosw_refresh_buttons(response.data.ids);
+            woosw_refresh_ids(response.data.ids);
+          }
+
+          $(document.body).trigger('woosw_remove', [product_id]);
+        });
+      } else if (woosw_vars.button_action_added === 'page') {
         // open wishlist page
         window.location.href = woosw_vars.wishlist_url;
       } else {
@@ -139,6 +185,11 @@
         }
       }
     } else {
+      // add product
+      var data = {
+        action: 'woosw_add', product_id: id, nonce: woosw_vars.nonce,
+      };
+
       $this.addClass('woosw-adding').
           find('.woosw-btn-icon').
           removeClass(woosw_vars.button_normal_icon + ' ' +
@@ -536,9 +587,36 @@
 
   // menu item
   $(document).
-      on('click touch', '.woosw-menu-item a, .woosw-menu a,.woosw-link a',
+      on('click touch',
+          '.woosw-menu-item a, .woosw-menu a, .woosw-link.woosw-link-auto a',
           function(e) {
             if (woosw_vars.menu_action === 'open_popup') {
+              e.preventDefault();
+
+              if ($('#woosw_wishlist').hasClass('woosw-loaded')) {
+                woosw_wishlist_show();
+              } else {
+                woosw_wishlist_load();
+              }
+            }
+          });
+
+  // link popup
+  $(document).on('click touch', '.woosw-link.woosw-link-popup a', function(e) {
+    e.preventDefault();
+
+    if ($('#woosw_wishlist').hasClass('woosw-loaded')) {
+      woosw_wishlist_show();
+    } else {
+      woosw_wishlist_load();
+    }
+  });
+
+  // account link
+  $(document).
+      on('click touch', '.woocommerce-MyAccount-navigation-link--wishlist a',
+          function(e) {
+            if (woosw_vars.page_myaccount === 'yes_popup') {
               e.preventDefault();
 
               if ($('#woosw_wishlist').hasClass('woosw-loaded')) {
@@ -618,11 +696,12 @@
           }
 
           if (response.count != null) {
-            if ($('#woosw_wishlist .woosw-items .woosw-item').length &&
-                ($('#woosw_wishlist .woosw-items .woosw-item').length !=
+            if ($(
+                    '#woosw_wishlist .woosw-items:not(.woosw-suggested-items) .woosw-item').length &&
+                ($('#woosw_wishlist .woosw-items:not(.woosw-suggested-items) .woosw-item').length !=
                     response.count)) {
               woosw_change_count(
-                  $('#woosw_wishlist .woosw-items .woosw-item').length);
+                  $('#woosw_wishlist .woosw-items:not(.woosw-suggested-items) .woosw-item').length);
             } else {
               woosw_change_count(response.count);
             }

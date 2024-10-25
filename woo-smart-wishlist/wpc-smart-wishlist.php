@@ -3,7 +3,7 @@
 Plugin Name: WPC Smart Wishlist for WooCommerce
 Plugin URI: https://wpclever.net/
 Description: WPC Smart Wishlist is a simple but powerful tool that can help your customer save products for buy later.
-Version: 4.9.2
+Version: 4.9.4
 Author: WPClever
 Author URI: https://wpclever.net
 Text Domain: woo-smart-wishlist
@@ -17,7 +17,7 @@ WC tested up to: 9.3
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.9.2' );
+! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.9.4' );
 ! defined( 'WOOSW_LITE' ) && define( 'WOOSW_LITE', __FILE__ );
 ! defined( 'WOOSW_FILE' ) && define( 'WOOSW_FILE', __FILE__ );
 ! defined( 'WOOSW_URI' ) && define( 'WOOSW_URI', plugin_dir_url( __FILE__ ) );
@@ -77,7 +77,7 @@ if ( ! function_exists( 'woosw_init' ) ) {
 					add_action( 'admin_menu', [ $this, 'admin_menu' ] );
 
 					// my account
-					if ( self::get_setting( 'page_myaccount', 'yes' ) === 'yes' ) {
+					if ( self::get_setting( 'page_myaccount', 'yes' ) !== 'no' ) {
 						add_filter( 'woocommerce_account_menu_items', [ $this, 'account_items' ], 99 );
 						add_action( 'woocommerce_account_wishlist_endpoint', [ $this, 'account_endpoint' ], 99 );
 					}
@@ -178,7 +178,7 @@ if ( ! function_exists( 'woosw_init' ) ) {
 					}
 
 					// my account page
-					if ( self::get_setting( 'page_myaccount', 'yes' ) === 'yes' ) {
+					if ( self::get_setting( 'page_myaccount', 'yes' ) !== 'no' ) {
 						add_rewrite_endpoint( 'wishlist', EP_PAGES );
 					}
 
@@ -784,10 +784,15 @@ if ( ! function_exists( 'woosw_init' ) ) {
 					return wp_kses_post( apply_filters( 'woosw_button_html', $output, $attrs['id'], $attrs ) );
 				}
 
-				function shortcode_link() {
-					$output = '<span class="woosw-link"><a href="' . esc_url( self::get_url() ) . '"><span class="woosw-link-inner" data-count="' . esc_attr( self::get_count() ) . '">' . esc_html( self::localization( 'link_label', esc_html__( 'Wishlist', 'woo-smart-wishlist' ) ) ) . '</span></a></span>';
+				function shortcode_link( $attrs ) {
+					$attrs = shortcode_atts( [
+						'type'  => 'auto',
+						'label' => self::localization( 'link_label', esc_html__( 'Wishlist', 'woo-smart-wishlist' ) )
+					], $attrs, 'woosw_link' );
 
-					return apply_filters( 'woosw_link_html', $output );
+					$output = '<span class="' . esc_attr( 'woosw-link woosw-link-' . $attrs['type'] ) . '"><a href="' . esc_url( self::get_url() ) . '"><span class="woosw-link-inner" data-count="' . esc_attr( self::get_count() ) . '">' . esc_html( $attrs['label'] ) . '</span></a></span>';
+
+					return apply_filters( 'woosw_link_html', $output, $attrs );
 				}
 
 				function shortcode_list( $attrs ) {
@@ -838,47 +843,50 @@ if ( ! function_exists( 'woosw_init' ) ) {
 
 					$return_html .= self::get_items( $key, 'table' );
 
-					$return_html .= '<div class="woosw-actions">';
+					if ( apply_filters( 'woosw_show_actions_for_empty_wishlist', false ) || self::get_count( $key ) ) {
+						$return_html .= '<div class="woosw-actions">';
 
-					if ( self::get_setting( 'page_share', 'yes' ) === 'yes' ) {
-						$facebook  = esc_html__( 'Facebook', 'woo-smart-wishlist' );
-						$twitter   = esc_html__( 'Twitter', 'woo-smart-wishlist' );
-						$pinterest = esc_html__( 'Pinterest', 'woo-smart-wishlist' );
-						$mail      = esc_html__( 'Mail', 'woo-smart-wishlist' );
+						if ( self::get_setting( 'page_share', 'yes' ) === 'yes' ) {
+							$facebook  = esc_html__( 'Facebook', 'woo-smart-wishlist' );
+							$twitter   = esc_html__( 'Twitter', 'woo-smart-wishlist' );
+							$pinterest = esc_html__( 'Pinterest', 'woo-smart-wishlist' );
+							$mail      = esc_html__( 'Mail', 'woo-smart-wishlist' );
 
-						if ( self::get_setting( 'page_icon', 'yes' ) === 'yes' ) {
-							$facebook = $twitter = $pinterest = $mail = "<i class='woosw-icon'></i>";
+							if ( self::get_setting( 'page_icon', 'yes' ) === 'yes' ) {
+								$facebook = $twitter = $pinterest = $mail = "<i class='woosw-icon'></i>";
+							}
+
+							$share_html  = '';
+							$share_items = self::get_setting( 'page_items' );
+
+							if ( ! empty( $share_items ) ) {
+								$share_url_e = urlencode( $share_url );
+
+								$share_html .= '<div class="woosw-share">';
+								$share_html .= '<span class="woosw-share-label">' . esc_html__( 'Share on:', 'woo-smart-wishlist' ) . '</span>';
+								$share_html .= ( in_array( 'facebook', $share_items ) ) ? '<a class="woosw-share-facebook" href="https://www.facebook.com/sharer.php?u=' . $share_url_e . '" target="_blank">' . $facebook . '</a>' : '';
+								$share_html .= ( in_array( 'twitter', $share_items ) ) ? '<a class="woosw-share-twitter" href="https://twitter.com/share?url=' . $share_url_e . '" target="_blank">' . $twitter . '</a>' : '';
+								$share_html .= ( in_array( 'pinterest', $share_items ) ) ? '<a class="woosw-share-pinterest" href="https://pinterest.com/pin/create/button/?url=' . $share_url_e . '" target="_blank">' . $pinterest . '</a>' : '';
+								$share_html .= ( in_array( 'mail', $share_items ) ) ? '<a class="woosw-share-mail" href="mailto:?body=' . $share_url_e . '" target="_blank">' . $mail . '</a>' : '';
+								$share_html .= '</div><!-- /woosw-share -->';
+							}
+
+							$return_html .= apply_filters( 'woosw_page_share_html', $share_html, $share_items, $share_url );
 						}
 
-						$share_html  = '';
-						$share_items = self::get_setting( 'page_items' );
+						if ( self::get_setting( 'page_copy', 'yes' ) === 'yes' ) {
+							$copy_html = '<div class="woosw-copy">';
+							$copy_html .= '<span class="woosw-copy-label">' . esc_html__( 'Wishlist link:', 'woo-smart-wishlist' ) . '</span>';
+							$copy_html .= apply_filters( 'woosw_page_copy_url', '<span class="woosw-copy-url"><input id="woosw_copy_url" type="url" value="' . esc_attr( $share_url ) . '" readonly/></span>' );
+							$copy_html .= apply_filters( 'woosw_page_copy_btn', '<span class="woosw-copy-btn"><button id="woosw_copy_btn" type="button" class="button">' . esc_html__( 'Copy', 'woo-smart-wishlist' ) . '</button></span>' );
+							$copy_html .= '</div><!-- /woosw-copy -->';
 
-						if ( ! empty( $share_items ) ) {
-							$share_url_e = urlencode( $share_url );
-
-							$share_html .= '<div class="woosw-share">';
-							$share_html .= '<span class="woosw-share-label">' . esc_html__( 'Share on:', 'woo-smart-wishlist' ) . '</span>';
-							$share_html .= ( in_array( 'facebook', $share_items ) ) ? '<a class="woosw-share-facebook" href="https://www.facebook.com/sharer.php?u=' . $share_url_e . '" target="_blank">' . $facebook . '</a>' : '';
-							$share_html .= ( in_array( 'twitter', $share_items ) ) ? '<a class="woosw-share-twitter" href="https://twitter.com/share?url=' . $share_url_e . '" target="_blank">' . $twitter . '</a>' : '';
-							$share_html .= ( in_array( 'pinterest', $share_items ) ) ? '<a class="woosw-share-pinterest" href="https://pinterest.com/pin/create/button/?url=' . $share_url_e . '" target="_blank">' . $pinterest . '</a>' : '';
-							$share_html .= ( in_array( 'mail', $share_items ) ) ? '<a class="woosw-share-mail" href="mailto:?body=' . $share_url_e . '" target="_blank">' . $mail . '</a>' : '';
-							$share_html .= '</div><!-- /woosw-share -->';
+							$return_html .= apply_filters( 'woosw_page_copy_html', $copy_html, $share_url );
 						}
 
-						$return_html .= apply_filters( 'woosw_page_share_html', $share_html, $share_items, $share_url );
+						$return_html .= '</div><!-- /woosw-actions -->';
 					}
 
-					if ( self::get_setting( 'page_copy', 'yes' ) === 'yes' ) {
-						$copy_html = '<div class="woosw-copy">';
-						$copy_html .= '<span class="woosw-copy-label">' . esc_html__( 'Wishlist link:', 'woo-smart-wishlist' ) . '</span>';
-						$copy_html .= apply_filters( 'woosw_page_copy_url', '<span class="woosw-copy-url"><input id="woosw_copy_url" type="url" value="' . esc_attr( $share_url ) . '" readonly/></span>' );
-						$copy_html .= apply_filters( 'woosw_page_copy_btn', '<span class="woosw-copy-btn"><button id="woosw_copy_btn" type="button" class="button">' . esc_html__( 'Copy', 'woo-smart-wishlist' ) . '</button></span>' );
-						$copy_html .= '</div><!-- /woosw-copy -->';
-
-						$return_html .= apply_filters( 'woosw_page_copy_html', $copy_html, $share_url );
-					}
-
-					$return_html .= '</div><!-- /woosw-actions -->';
 					$return_html .= '</div><!-- /woosw-list -->';
 
 					return apply_filters( 'woosw_list_html', $return_html, $attrs );
@@ -1122,8 +1130,9 @@ if ( ! function_exists( 'woosw_init' ) ) {
                                                 <label> <select name="woosw_settings[button_action_added]">
                                                         <option value="popup" <?php selected( $button_action_added, 'popup' ); ?>><?php esc_html_e( 'Open wishlist popup', 'woo-smart-wishlist' ); ?></option>
                                                         <option value="page" <?php selected( $button_action_added, 'page' ); ?>><?php esc_html_e( 'Open wishlist page', 'woo-smart-wishlist' ); ?></option>
+                                                        <option value="remove" <?php selected( $button_action_added, 'remove' ); ?>><?php esc_html_e( 'Remove from wishlist', 'woo-smart-wishlist' ); ?></option>
                                                     </select> </label>
-                                                <p class="description"><?php esc_html_e( 'Action triggered by clicking on the wishlist button after adding an item to the wishlist.', 'woo-smart-wishlist' ); ?></p>
+                                                <p class="description"><?php esc_html_e( 'Action triggered by clicking on the wishlist button of a product that was added to wishlist.', 'woo-smart-wishlist' ); ?></p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1432,10 +1441,11 @@ if ( ! function_exists( 'woosw_init' ) ) {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th scope="row"><?php esc_html_e( 'Add Wishlist page to My Account', 'woo-smart-wishlist' ); ?></th>
+                                            <th scope="row"><?php esc_html_e( 'Add Wishlist link to My Account', 'woo-smart-wishlist' ); ?></th>
                                             <td>
                                                 <label> <select name="woosw_settings[page_myaccount]">
-                                                        <option value="yes" <?php selected( $page_myaccount, 'yes' ); ?>><?php esc_html_e( 'Yes', 'woo-smart-wishlist' ); ?></option>
+                                                        <option value="yes" <?php selected( $page_myaccount, 'yes' ); ?>><?php esc_html_e( 'Yes, open wishlist page', 'woo-smart-wishlist' ); ?></option>
+                                                        <option value="yes_popup" <?php selected( $page_myaccount, 'yes_popup' ); ?>><?php esc_html_e( 'Yes, open wishlist popup', 'woo-smart-wishlist' ); ?></option>
                                                         <option value="no" <?php selected( $page_myaccount, 'no' ); ?>><?php esc_html_e( 'No', 'woo-smart-wishlist' ); ?></option>
                                                     </select> </label>
                                             </td>
@@ -1844,6 +1854,7 @@ if ( ! function_exists( 'woosw_init' ) ) {
 					wp_localize_script( 'woosw-frontend', 'woosw_vars', [
 							'wc_ajax_url'         => WC_AJAX::get_endpoint( '%%endpoint%%' ),
 							'nonce'               => wp_create_nonce( 'woosw-security' ),
+							'page_myaccount'      => self::get_setting( 'page_myaccount', 'yes' ),
 							'menu_action'         => self::get_setting( 'menu_action', 'open_page' ),
 							'reload_count'        => self::get_setting( 'reload_count', 'no' ),
 							'perfect_scrollbar'   => self::get_setting( 'perfect_scrollbar', 'yes' ),
