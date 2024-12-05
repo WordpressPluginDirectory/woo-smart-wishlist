@@ -28,6 +28,14 @@
       woosw_load_count();
     }
 
+    if (woosw_vars.added_to_cart === 'yes' && woosw_vars.auto_remove ===
+        'yes') {
+      setTimeout(function() {
+        woosw_load_count();
+        woosw_get_data();
+      }, 300);
+    }
+
     if (woosw_vars.button_action === 'message') {
       $.notiny.addTheme('woosw', {
         notification_class: 'notiny-theme-woosw',
@@ -93,6 +101,13 @@
 
     // refresh button
     woosw_refresh_button_id(product_id);
+  });
+
+  $(document.body).on('added_to_cart', function(e) {
+    if (woosw_vars.auto_remove === 'yes') {
+      woosw_load_count();
+      woosw_get_data();
+    }
   });
 
   // quick view

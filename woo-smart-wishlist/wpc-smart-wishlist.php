@@ -3,21 +3,23 @@
 Plugin Name: WPC Smart Wishlist for WooCommerce
 Plugin URI: https://wpclever.net/
 Description: WPC Smart Wishlist is a simple but powerful tool that can help your customer save products for buy later.
-Version: 4.9.4
+Version: 4.9.6
 Author: WPClever
 Author URI: https://wpclever.net
 Text Domain: woo-smart-wishlist
 Domain Path: /languages/
 Requires Plugins: woocommerce
 Requires at least: 4.0
-Tested up to: 6.6
+Tested up to: 6.7
 WC requires at least: 3.0
-WC tested up to: 9.3
+WC tested up to: 9.4
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.9.4' );
+! defined( 'WOOSW_VERSION' ) && define( 'WOOSW_VERSION', '4.9.6' );
 ! defined( 'WOOSW_LITE' ) && define( 'WOOSW_LITE', __FILE__ );
 ! defined( 'WOOSW_FILE' ) && define( 'WOOSW_FILE', __FILE__ );
 ! defined( 'WOOSW_URI' ) && define( 'WOOSW_URI', plugin_dir_url( __FILE__ ) );
@@ -40,9 +42,6 @@ if ( ! function_exists( 'woosw_init' ) ) {
 	add_action( 'plugins_loaded', 'woosw_init', 11 );
 
 	function woosw_init() {
-		// load text-domain
-		load_plugin_textdomain( 'woo-smart-wishlist', false, basename( __DIR__ ) . '/languages/' );
-
 		if ( ! function_exists( 'WC' ) || ! version_compare( WC()->version, '3.0', '>=' ) ) {
 			add_action( 'admin_notices', 'woosw_notice_wc' );
 
@@ -161,6 +160,9 @@ if ( ! function_exists( 'woosw_init' ) ) {
 				}
 
 				function init() {
+					// load text-domain
+					load_plugin_textdomain( 'woo-smart-wishlist', false, basename( WOOSW_DIR ) . '/languages/' );
+
 					// get key
 					$key = sanitize_text_field( $_COOKIE['woosw_key'] ?? '#' );
 
@@ -1850,10 +1852,30 @@ if ( ! function_exists( 'woosw_init' ) ) {
 						'js-cookie'
 					], WOOSW_VERSION, true );
 
+					$added_to_cart = 'no';
+					$requests      = apply_filters( 'woosw_added_to_cart_requests', [
+						'add-to-cart',
+						'product_added_to_cart',
+						'added_to_cart',
+						'set_cart',
+						'fill_cart'
+					] );
+
+					if ( is_array( $requests ) && ! empty( $requests ) ) {
+						foreach ( $requests as $request ) {
+							if ( isset( $_REQUEST[ $request ] ) ) {
+								$added_to_cart = 'yes';
+								break;
+							}
+						}
+					}
+
 					// localize
 					wp_localize_script( 'woosw-frontend', 'woosw_vars', [
 							'wc_ajax_url'         => WC_AJAX::get_endpoint( '%%endpoint%%' ),
 							'nonce'               => wp_create_nonce( 'woosw-security' ),
+							'added_to_cart'       => apply_filters( 'woosw_added_to_cart', $added_to_cart ),
+							'auto_remove'         => self::get_setting( 'auto_remove', 'no' ),
 							'page_myaccount'      => self::get_setting( 'page_myaccount', 'yes' ),
 							'menu_action'         => self::get_setting( 'menu_action', 'open_page' ),
 							'reload_count'        => self::get_setting( 'reload_count', 'no' ),
@@ -2025,31 +2047,45 @@ if ( ! function_exists( 'woosw_init' ) ) {
 
 							if ( self::get_setting( 'show_price_change', 'no' ) !== 'no' ) {
 								if ( isset( $product_data['price'] ) ) {
-									$price = $product->get_price();
+									$product_price = (float) $product_data['price'];
+									$price         = (float) $product->get_price();
 
-									if ( $price != $product_data['price'] ) {
+									if ( $price != $product_price ) {
 										// has price change
-										if ( $price > $product_data['price'] ) {
-											// increase
-											$percentage    = 100 * ( $price - $product_data['price'] ) / $product_data['price'];
-											$percentage    = apply_filters( 'woosw_price_increase_percentage', round( $percentage ) . '%', $percentage, $product_data );
-											$increase      = self::localization( 'price_increase', esc_html__( 'Increase {percentage} since added', 'woo-smart-wishlist' ) );
-											$increase_mess = str_replace( '{percentage}', $percentage, $increase );
+										if ( $product_price != 0 ) {
+											if ( $price > $product_price ) {
+												// increase
+												$percentage    = 100 * ( $price - $product_price ) / $product_price;
+												$percentage    = apply_filters( 'woosw_price_increase_percentage', round( $percentage ) . '%', $percentage, $product_data );
+												$increase      = self::localization( 'price_increase', esc_html__( 'Increase {percentage} since added', 'woo-smart-wishlist' ) );
+												$increase_mess = str_replace( '{percentage}', $percentage, $increase );
 
-											if ( self::get_setting( 'show_price_change', 'no' ) === 'both' || self::get_setting( 'show_price_change', 'no' ) === 'increase' ) {
-												echo '<div class="woosw-item--price-change woosw-item--price-increase">' . apply_filters( 'woosw_price_increase_message', $increase_mess, $percentage, $product_data ) . '</div>';
+												if ( self::get_setting( 'show_price_change', 'no' ) === 'both' || self::get_setting( 'show_price_change', 'no' ) === 'increase' ) {
+													echo '<div class="woosw-item--price-change woosw-item--price-increase">' . apply_filters( 'woosw_price_increase_message', $increase_mess, $percentage, $product_data ) . '</div>';
+												}
 											}
-										}
 
-										if ( $price < $product_data['price'] ) {
-											// decrease
-											$percentage    = 100 * ( $product_data['price'] - $price ) / $product_data['price'];
-											$percentage    = apply_filters( 'woosw_price_decrease_percentage', round( $percentage ) . '%', $percentage, $product_data );
-											$decrease      = self::localization( 'price_decrease', esc_html__( 'Decrease {percentage} since added', 'woo-smart-wishlist' ) );
-											$decrease_mess = str_replace( '{percentage}', $percentage, $decrease );
+											if ( $price < $product_price ) {
+												// decrease
+												$percentage    = 100 * ( $product_price - $price ) / $product_price;
+												$percentage    = apply_filters( 'woosw_price_decrease_percentage', round( $percentage ) . '%', $percentage, $product_data );
+												$decrease      = self::localization( 'price_decrease', esc_html__( 'Decrease {percentage} since added', 'woo-smart-wishlist' ) );
+												$decrease_mess = str_replace( '{percentage}', $percentage, $decrease );
 
-											if ( self::get_setting( 'show_price_change', 'no' ) === 'both' || self::get_setting( 'show_price_change', 'no' ) === 'decrease' ) {
-												echo '<div class="woosw-item--price-change woosw-item--price-decrease">' . apply_filters( 'woosw_price_decrease_message', $decrease_mess, $percentage, $product_data ) . '</div>';
+												if ( self::get_setting( 'show_price_change', 'no' ) === 'both' || self::get_setting( 'show_price_change', 'no' ) === 'decrease' ) {
+													echo '<div class="woosw-item--price-change woosw-item--price-decrease">' . apply_filters( 'woosw_price_decrease_message', $decrease_mess, $percentage, $product_data ) . '</div>';
+												}
+											}
+										} else {
+											if ( $price > $product_price ) {
+												$percentage    = 100;
+												$percentage    = apply_filters( 'woosw_price_increase_percentage', round( $percentage ) . '%', $percentage, $product_data );
+												$increase      = self::localization( 'price_increase', esc_html__( 'Increase {percentage} since added', 'woo-smart-wishlist' ) );
+												$increase_mess = str_replace( '{percentage}', $percentage, $increase );
+
+												if ( self::get_setting( 'show_price_change', 'no' ) === 'both' || self::get_setting( 'show_price_change', 'no' ) === 'increase' ) {
+													echo '<div class="woosw-item--price-change woosw-item--price-increase">' . apply_filters( 'woosw_price_increase_message', $increase_mess, $percentage, $product_data ) . '</div>';
+												}
 											}
 										}
 									}
