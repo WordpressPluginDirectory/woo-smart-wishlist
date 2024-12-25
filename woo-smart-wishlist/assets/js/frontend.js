@@ -103,12 +103,20 @@
     woosw_refresh_button_id(product_id);
   });
 
-  $(document.body).on('added_to_cart', function(e) {
-    if (woosw_vars.auto_remove === 'yes') {
-      woosw_load_count();
-      woosw_get_data();
-    }
-  });
+  // auto remove
+  $(document.body).
+      on('added_to_cart', function(e, fragments, cart_hash, $button) {
+        if (woosw_vars.auto_remove === 'yes') {
+          var product_id = parseInt($button.data('product_id'));
+
+          if ((product_id > 0) && $('.woosw-item-' + product_id).length) {
+            $('.woosw-item-' + product_id).remove();
+          }
+
+          woosw_load_count();
+          woosw_get_data();
+        }
+      });
 
   // quick view
   $(document).

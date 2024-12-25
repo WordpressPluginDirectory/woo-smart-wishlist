@@ -4,8 +4,8 @@ Donate link: https://wpclever.net
 Tags: woocommerce, wpc, wishlist, wait-list
 Requires at least: 4.0
 Tested up to: 6.7
-Version: 4.9.6
-Stable tag: 4.9.6
+Version: 4.9.7
+Stable tag: 4.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,10 @@ Example:
 `echo do_shortcode('[woosw id="99"]');`
 
 == Changelog ==
+
+= 4.9.7 =
+* Fixed: Minor JS issue on the frontend
+* Updated: Compatible with WP 6.7 & Woo 9.5
 
 = 4.9.6 =
 * Fixed: Error on displaying price change
